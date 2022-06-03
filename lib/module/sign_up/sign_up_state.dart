@@ -54,7 +54,8 @@ class _SignUpViewState extends TTState<_SignUpModel, _SignUpView> {
                 style: St.body14600,
               ),
             ),
-            const TTButton(
+            TTButton(
+              onPressed: model.onSignUpWithEmail,
               text: 'Sign up with E-mail',
             ),
             const SizedBox(height: 24),

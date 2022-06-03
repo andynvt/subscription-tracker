@@ -6,4 +6,14 @@ class _SignUpModel extends TTChangeNotifier<_SignUpView> {
   void onSignUpWithGoogle() {}
 
   void onSignUpWithFacebook() {}
+
+  void onSignUpWithEmail() {
+    Navigator.of(context!).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return createSignUpEmail();
+        },
+      ),
+    );
+  }
 }
