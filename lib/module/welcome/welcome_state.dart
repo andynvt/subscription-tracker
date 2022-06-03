@@ -1,12 +1,19 @@
 part of login;
 
-class _LoginViewState extends TTState<_LoginModel, _LoginView> {
+class _WelcomeViewState extends TTState<_WelcomeModel, _WelcomeView> {
   @override
-  Widget buildWithModel(BuildContext context, _LoginModel model) {
+  Widget buildWithModel(BuildContext context, _WelcomeModel model) {
     final padding = MediaQuery.of(context).padding;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Cl.color1C1C23,
       body: Stack(children: [
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: EdgeInsets.only(top: 150 + padding.top),
+            child: Image.asset(Id.img_colorful_background),
+          ),
+        ),
         Padding(
           padding: EdgeInsets.only(
             top: 120 + padding.top,
@@ -31,20 +38,9 @@ class _LoginViewState extends TTState<_LoginModel, _LoginView> {
             child: Image.asset(Id.img_background_right),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 65),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                Id.img_logo1,
-                height: 29,
-                width: 29,
-              ),
-              const SizedBox(width: 13),
-              Image.asset(Id.img_logo)
-            ],
-          ),
+        const Padding(
+          padding: EdgeInsets.only(top: 65),
+          child: TTLogoWidget(),
         ),
         Positioned(
           left: 25,

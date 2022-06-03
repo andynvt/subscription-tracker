@@ -2,4 +2,5 @@
 /// WARNING: THIS FILE IS GENERATE FILE. SHOULDN'T EDIT THIS FILE.
 ///---------------------------------------------------------------
 
-export './login/login_public.dart';
+export './sign_up/sign_up_public.dart';
+export './welcome/welcome_public.dart';

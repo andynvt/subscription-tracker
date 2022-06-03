@@ -3,7 +3,7 @@ import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:subscription_tracker/res/res.dart';
 
 class TTButton extends StatelessWidget {
-  final String text;
+  final String? text;
   final Widget? child;
   final bool hasShadow;
   final Gradient? gradient;
@@ -16,7 +16,7 @@ class TTButton extends StatelessWidget {
 
   const TTButton({
     Key? key,
-    required this.text,
+    this.text,
     this.gradient,
     this.child,
     this.hasShadow = false,
@@ -29,7 +29,7 @@ class TTButton extends StatelessWidget {
   }) : super(key: key);
 
   factory TTButton.shadow({
-    required String text,
+    String? text,
     Color? startColor,
     Color? endColor,
     Color? backgroundColor,
@@ -93,7 +93,7 @@ class TTButton extends StatelessWidget {
         child: child ??
             Center(
               child: Text(
-                text,
+                text ?? '',
                 style: St.body14600,
               ),
             ),
