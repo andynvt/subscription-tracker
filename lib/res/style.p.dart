@@ -22,4 +22,16 @@ class St {
     fontWeight: FontWeight.w500,
     color: Cl.colorFFFFFF,
   );
+  static const body40700 = TextStyle(
+    fontFamily: Font.inter,
+    fontSize: 40,
+    fontWeight: FontWeight.w700,
+    color: Cl.colorFFFFFF,
+  );
+  static const body12600 = TextStyle(
+    fontFamily: Font.inter,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: Cl.colorFFFFFF,
+  );
 }

@@ -1,7 +1,9 @@
 library home;
 
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:subscription_tracker/module/module.dart';
 import 'package:subscription_tracker/res/res.dart';
 import 'package:subscription_tracker/widget/widget.dart';
 

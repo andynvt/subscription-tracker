@@ -13,6 +13,7 @@ class TTButton extends StatelessWidget {
   final double borderRadius;
   final Color shadowColor;
   final VoidCallback? onPressed;
+  final double? width;
 
   const TTButton({
     Key? key,
@@ -26,6 +27,7 @@ class TTButton extends StatelessWidget {
     this.shadowColor = Colors.transparent,
     this.borderRadius = 30,
     this.onPressed,
+    this.width,
   }) : super(key: key);
 
   factory TTButton.shadow({
@@ -77,7 +79,7 @@ class TTButton extends StatelessWidget {
       strokeWidth: strokeWidth,
       child: Container(
         height: height,
-        width: double.infinity,
+        width: width ?? double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
           boxShadow: hasShadow
