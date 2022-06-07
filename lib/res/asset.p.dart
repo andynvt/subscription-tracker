@@ -7,12 +7,15 @@
 class Id {
   Id._();
 
+  static const String ic_add = 'assets/images/ic_add.png';
   static const String ic_apple = 'assets/images/ic_apple.png';
   static const String ic_calendar = 'assets/images/ic_calendar.png';
+  static const String ic_car = 'assets/images/ic_car.png';
   static const String ic_credit_cards = 'assets/images/ic_credit_cards.png';
   static const String ic_facebook = 'assets/images/ic_facebook.png';
   static const String ic_google = 'assets/images/ic_google.png';
   static const String ic_home = 'assets/images/ic_home.png';
+  static const String ic_like = 'assets/images/ic_like.png';
   static const String ic_logo = 'assets/images/ic_logo.png';
   static const String ic_menu = 'assets/images/ic_menu.png';
   static const String ic_setting = 'assets/images/ic_setting.png';

@@ -23,14 +23,19 @@ class _SignUpEmailModel extends TTChangeNotifier<_SignUpEmailView> {
   }
 
   void onGetStartedPressed() {
-    Navigator.of(context!).push(MaterialPageRoute(builder: (_) {
-      return createHome();
-    }));
     bool isValid = formKey.currentState?.validate() ?? false;
     if (!isValid) {
       return;
     }
+
+    Navigator.of(context!).push(MaterialPageRoute(builder: (_) {
+      return createHome();
+    }));
   }
 
-  void onSignInPressed() {}
+  void onSignInPressed() {
+    Navigator.of(context!).push(MaterialPageRoute(builder: (_) {
+      return createLogin();
+    }));
+  }
 }

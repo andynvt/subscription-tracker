@@ -1,7 +1,10 @@
 library menu;
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:subscription_tracker/model/model.dart';
+import 'package:subscription_tracker/res/res.dart';
 import 'package:subscription_tracker/widget/widget.dart';
 
 part 'menu_view.dart';

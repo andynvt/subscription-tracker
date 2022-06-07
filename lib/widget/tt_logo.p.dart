@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:subscription_tracker/res/res.dart';
 
-class TTLogoWidget extends StatefulWidget {
-  const TTLogoWidget({Key? key}) : super(key: key);
+class TTLogoWidget extends StatelessWidget {
+  final double? height;
 
-  @override
-  _TTLogoWidgetState createState() => _TTLogoWidgetState();
-}
+  const TTLogoWidget({Key? key, this.height}) : super(key: key);
 
-class _TTLogoWidgetState extends State<TTLogoWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,11 +13,17 @@ class _TTLogoWidgetState extends State<TTLogoWidget> {
       children: [
         Image.asset(
           Id.img_logo1,
-          height: 29,
-          width: 29,
+          height: height ?? 29,
+          width: height ?? 29,
         ),
         const SizedBox(width: 13),
-        Image.asset(Id.img_logo)
+        Image.asset(
+          Id.img_logo,
+          height: height ?? 29,
+          width: 100,
+          fit: BoxFit.contain,
+          color: Cl.colorFFFFFF,
+        ),
       ],
     );
   }
