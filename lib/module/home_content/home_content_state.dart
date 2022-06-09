@@ -246,7 +246,7 @@ class _HomeContentViewState extends TTState<_HomeContentModel, _HomeContentView>
             ),
             const Spacer(),
             Text(
-              subscripItemInfo.money,
+              subscripItemInfo.moneyDisplay,
               style: St.body14600.copyWith(color: Cl.colorFFFFFF),
             ),
           ],

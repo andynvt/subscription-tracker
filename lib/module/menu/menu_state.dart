@@ -88,7 +88,7 @@ class _MenuViewState extends TTState<_MenuModel, _MenuView> {
     );
   }
 
-  Padding buildAddNewCategoryButton() {
+  Widget buildAddNewCategoryButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: MaterialButton(

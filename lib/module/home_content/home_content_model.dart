@@ -15,7 +15,7 @@ class _HomeContentModel extends TTChangeNotifier<_HomeContentView> {
       return SubscripItemInfo.from({
         'icons': Id.ic_logo,
         'names': 'name$index',
-        'money': 'money$index',
+        'money': 5.99,
       });
     });
 
