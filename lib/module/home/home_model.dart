@@ -9,4 +9,12 @@ class _HomeModel extends TTChangeNotifier<_HomeView> {
       notifyListeners();
     }
   }
+
+  void onAddNewSubscription() {
+    Navigator.of(context!).push(
+      MaterialPageRoute(
+        builder: (_) => createNewSubscription(),
+      ),
+    );
+  }
 }

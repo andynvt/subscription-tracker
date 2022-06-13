@@ -11,7 +11,7 @@ class _HomeViewState extends TTState<_HomeModel, _HomeView> {
         width: 48,
         height: 48,
         child: TTButton(
-          onPressed: () {},
+          onPressed: model.onAddNewSubscription,
           child: const Icon(
             Icons.add,
             color: Colors.white,

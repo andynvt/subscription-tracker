@@ -64,4 +64,10 @@ class St {
     fontWeight: FontWeight.w600,
     color: Cl.colorFFFFFF,
   );
+  static const body32700 = TextStyle(
+    fontFamily: Font.inter,
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    color: Cl.colorFFFFFF,
+  );
 }

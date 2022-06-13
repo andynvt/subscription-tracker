@@ -9,6 +9,8 @@ class Id {
 
   static const String ic_add = 'assets/images/ic_add.png';
   static const String ic_apple = 'assets/images/ic_apple.png';
+  static const String ic_around_down = 'assets/images/ic_around_down.png';
+  static const String ic_arrow_right = 'assets/images/ic_arrow_right.png';
   static const String ic_calendar = 'assets/images/ic_calendar.png';
   static const String ic_car = 'assets/images/ic_car.png';
   static const String ic_credit_cards = 'assets/images/ic_credit_cards.png';
@@ -18,11 +20,17 @@ class Id {
   static const String ic_like = 'assets/images/ic_like.png';
   static const String ic_logo = 'assets/images/ic_logo.png';
   static const String ic_menu = 'assets/images/ic_menu.png';
+  static const String ic_minus = 'assets/images/ic_minus.png';
+  static const String ic_plus = 'assets/images/ic_plus.png';
   static const String ic_setting = 'assets/images/ic_setting.png';
+  static const String ic_trash = 'assets/images/ic_trash.png';
   static const String img_background = 'assets/images/img_background.png';
   static const String img_background_left = 'assets/images/img_background_left.png';
   static const String img_background_right = 'assets/images/img_background_right.png';
   static const String img_colorful_background = 'assets/images/img_colorful_background.png';
+  static const String img_hbo_logo = 'assets/images/img_hbo_logo.png';
   static const String img_logo = 'assets/images/img_logo.png';
   static const String img_logo1 = 'assets/images/img_logo1.png';
+  static const String img_onedrive_logo = 'assets/images/img_onedrive_logo.png';
+  static const String img_spotify_logo = 'assets/images/img_spotify_logo.png';
 }
