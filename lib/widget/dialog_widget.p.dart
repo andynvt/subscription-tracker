@@ -7,7 +7,7 @@ Future showTextfieldDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        content: _DialogWidget(),
+        content: const _DialogWidget(),
         title: Text(
           'Title',
           style: St.body24700.copyWith(color: Cl.colorFFFFFF),
@@ -46,8 +46,6 @@ class _DialogWidget extends StatefulWidget {
 class _DialogWidgetState extends State<_DialogWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TTTextField(),
-    );
+    return const TTTextField();
   }
 }

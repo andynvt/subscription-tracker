@@ -74,37 +74,67 @@ class _SettingViewState extends TTState<_SettingModel, _SettingView> {
               ),
               const SizedBox(height: 8),
 
-              OutlineGradientButton(
-                backgroundColor: Cl.color4E4E61.withOpacity(0.2),
-                radius: const Radius.circular(16),
-                gradient: LinearGradient(
-                  colors: [
-                    Cl.colorCFCFFC.withOpacity(0.15),
-                    Cl.colorCFCFFC.withOpacity(0),
-                  ],
-                ),
-                strokeWidth: 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    children: [
-                      buildlistItem(
-                        imageAsset: Id.ic_app_icon,
-                        name: 'App icon',
-                        text: 'Default',
-                      ),
-                      buildlistItem(
-                        imageAsset: Id.ic_light_theme,
-                        name: 'Theme',
-                        text: 'Dark',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 30),
+              buildAppearanceItem(),
+              const SizedBox(height: 30),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildAppearanceItem() {
+    return OutlineGradientButton(
+      backgroundColor: Cl.color4E4E61.withOpacity(0.2),
+      radius: const Radius.circular(16),
+      gradient: LinearGradient(
+        colors: [
+          Cl.colorCFCFFC.withOpacity(0.15),
+          Cl.colorCFCFFC.withOpacity(0),
+        ],
+      ),
+      strokeWidth: 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            PopupMenuButton(
+              itemBuilder: (_) {
+                return List.generate(model.appIcons.length, (index) {
+                  final item = model.appIcons[index];
+                  return PopupMenuItem(
+                    value: item,
+                    child: Text(item.nameDisplay),
+                  );
+                });
+              },
+              offset: const Offset(50, 0),
+              onSelected: model.onAppIconSelected,
+              child: buildlistItem(
+                imageAsset: Id.ic_app_icon,
+                name: 'App icon',
+                text: model.appIconSelectedName,
+              ),
+            ),
+            PopupMenuButton(
+              itemBuilder: (_) {
+                return List.generate(model.themes.length, (index) {
+                  final item = model.themes[index];
+                  return PopupMenuItem(
+                    value: item,
+                    child: Text(item.themeDisplay),
+                  );
+                });
+              },
+              offset: const Offset(50, 0),
+              onSelected: model.onThemeSelected,
+              child: buildlistItem(
+                imageAsset: Id.ic_light_theme,
+                name: 'Theme',
+                text: model.themeSelectedName,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -144,15 +174,41 @@ class _SettingViewState extends TTState<_SettingModel, _SettingView> {
                 text: model.sortingSelectedName,
               ),
             ),
-            buildlistItem(
-              imageAsset: Id.ic_chart,
-              name: 'Summary',
-              text: 'Average',
+            PopupMenuButton(
+              itemBuilder: (_) {
+                return List.generate(model.summaries.length, (index) {
+                  final item = model.summaries[index];
+                  return PopupMenuItem(
+                    value: item,
+                    child: Text(item.summaryDisplay),
+                  );
+                });
+              },
+              onSelected: model.onSummarySelected,
+              offset: const Offset(50, 0),
+              child: buildlistItem(
+                imageAsset: Id.ic_chart,
+                name: 'Summary',
+                text: model.summarySelectedName,
+              ),
             ),
-            buildlistItem(
-              imageAsset: Id.ic_money,
-              name: 'Default currency',
-              text: 'USD (\$)',
+            PopupMenuButton(
+              itemBuilder: (_) {
+                return List.generate(model.defaultCurrencies.length, (index) {
+                  final item = model.defaultCurrencies[index];
+                  return PopupMenuItem(
+                    value: item,
+                    child: Text(item.nameDisplay),
+                  );
+                });
+              },
+              onSelected: model.onDefaultCurrencySelected,
+              offset: const Offset(50, 0),
+              child: buildlistItem(
+                imageAsset: Id.ic_money,
+                name: 'Default currency',
+                text: model.defaultCurrencySelectedName,
+              ),
             ),
           ],
         ),
@@ -185,7 +241,7 @@ class _SettingViewState extends TTState<_SettingModel, _SettingView> {
                   );
                 });
               },
-              offset: Offset(50, 0),
+              offset: const Offset(50, 0),
               onSelected: model.onSecuritySelected,
               child: buildlistItem(
                 imageAsset: Id.ic_faceid,
