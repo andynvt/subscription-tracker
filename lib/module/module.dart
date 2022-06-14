@@ -9,6 +9,7 @@ export './home_content/home_content_public.dart';
 export './login/login_public.dart';
 export './menu/menu_public.dart';
 export './new_subscription/new_subscription_public.dart';
+export './setting/setting_public.dart';
 export './sign_up/sign_up_public.dart';
 export './sign_up_email/sign_up_email_public.dart';
 export './subscription_info/subscription_info_public.dart';

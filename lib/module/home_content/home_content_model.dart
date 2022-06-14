@@ -40,4 +40,10 @@ class _HomeContentModel extends TTChangeNotifier<_HomeContentView> {
       notifyListeners();
     }
   }
+
+  void onSettingPressed() {
+    Navigator.of(context!).push(MaterialPageRoute(builder: (_) {
+      return createSetting();
+    }));
+  }
 }

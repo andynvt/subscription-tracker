@@ -45,7 +45,7 @@ class _HomeContentViewState extends TTState<_HomeContentModel, _HomeContentView>
                           child: Material(
                             color: Colors.transparent,
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: model.onSettingPressed,
                               icon: Image.asset(Id.ic_setting),
                             ),
                           ),

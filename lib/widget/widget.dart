@@ -2,6 +2,9 @@
 /// WARNING: THIS FILE IS GENERATE FILE. SHOULDN'T EDIT THIS FILE.
 ///---------------------------------------------------------------
 
+export './dashed_line_painter.p.dart';
+export './dialog_widget.p.dart';
+export './dropdown_widget.p.dart';
 export './tt_button.p.dart';
 export './tt_consum.p.dart';
 export './tt_logo.p.dart';

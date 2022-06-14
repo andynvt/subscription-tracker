@@ -123,24 +123,65 @@ class _SubscriptionInfoViewState extends TTState<_SubscriptionInfoModel, _Subscr
                                   text: 'Spotify',
                                 ),
                                 buildListInfo(
+                                  onPressed: model.onDescriptionPressed,
                                   title: 'Description',
                                   text: 'Music app',
                                 ),
-                                buildListInfo(
-                                  title: 'Category',
-                                  text: 'Enterteintment',
+                                PopupMenuButton(
+                                  itemBuilder: (_) {
+                                    return List.generate(model.categories.length, (index) {
+                                      final item = model.categories[index];
+                                      return PopupMenuItem(
+                                        value: item,
+                                        child: Text(item.name),
+                                      );
+                                    });
+                                  },
+                                  onSelected: model.onCategoryChanged,
+                                  offset: const Offset(50, 0),
+                                  child: buildListInfo(
+                                    title: 'Category',
+                                    text: model.categorySelectedName,
+                                  ),
                                 ),
                                 buildListInfo(
                                   title: 'First payment',
-                                  text: '08.01.2022',
+                                  text: DateTimeUtils.dateTimeFormat(model.firstPayment),
+                                  onPressed: model.onPaymentSelected,
                                 ),
-                                buildListInfo(
-                                  title: 'Reminder',
-                                  text: 'Never',
+                                PopupMenuButton(
+                                  itemBuilder: (_) {
+                                    return List.generate(model.reminders.length, (index) {
+                                      final item = model.reminders[index];
+                                      return PopupMenuItem(
+                                        child: Text(item.reminder),
+                                        value: item,
+                                      );
+                                    });
+                                  },
+                                  onSelected: model.onReminderChanged,
+                                  offset: const Offset(50, 0),
+                                  child: buildListInfo(
+                                    title: 'Reminder',
+                                    text: model.reminderSelectedName,
+                                  ),
                                 ),
-                                buildListInfo(
-                                  title: 'Currency',
-                                  text: 'USD (\$)',
+                                PopupMenuButton(
+                                  itemBuilder: (_) {
+                                    return List.generate(model.currencies.length, (index) {
+                                      final item = model.currencies[index];
+                                      return PopupMenuItem(
+                                        child: Text(item.currency),
+                                        value: item,
+                                      );
+                                    });
+                                  },
+                                  onSelected: model.onCurrencyChanged,
+                                  offset: const Offset(50, 0),
+                                  child: buildListInfo(
+                                    title: 'Currency',
+                                    text: model.currencySelectedName,
+                                  ),
                                 ),
 
                                 // SizedBox(height: 22),
