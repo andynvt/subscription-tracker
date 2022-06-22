@@ -102,51 +102,97 @@ class _CreditCardsViewState extends TTState<_CreditCardsModel, _CreditCardsView>
               itemHeight: 377,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  height: 377,
+                  clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: Cl.color252530,
                   ),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 32),
-                      Image.asset(Id.ic_circle),
-                      const SizedBox(height: 16),
-                      Text(
-                        'Virtual Card',
-                        style: St.body16600.copyWith(color: Cl.colorFFFFFF),
-                      ),
-                      const SizedBox(height: 91),
-                      Text(
-                        'John Doe',
-                        style: St.body12600.copyWith(color: Cl.colorC1C1CD),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '****',
-                            style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                  child: TTButton(
+                    backgroundColor: Cl.color252530,
+                    borderRadius: 16,
+                    gradient: LinearGradient(
+                      colors: [
+                        Cl.colorCFCFFC.withOpacity(0.15),
+                        Cl.colorCFCFFC.withOpacity(0),
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            const SizedBox(height: 32),
+                            Image.asset(Id.ic_circle),
+                            const SizedBox(height: 16),
+                            Text(
+                              'Virtual Card',
+                              style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                            ),
+                            const SizedBox(height: 91),
+                            Text(
+                              'John Doe',
+                              style: St.body12600.copyWith(color: Cl.colorC1C1CD),
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '****',
+                                  style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '****',
+                                  style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '****',
+                                  style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '2197',
+                                  style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              '08/28',
+                              style: St.body14600.copyWith(color: Cl.colorFFFFFF),
+                            ),
+                            const SizedBox(height: 16),
+                            Image.asset(Id.ic_card),
+                            SizedBox(height: 47),
+                          ],
+                        ),
+                        Positioned(
+                          top: -70,
+                          right: -100,
+                          child: Container(
+                            height: 280,
+                            width: 280,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(160),
+                              color: Cl.colorFFFFFF.withOpacity(0.1),
+                            ),
                           ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '****',
-                            style: St.body16600.copyWith(color: Cl.colorFFFFFF),
+                        ),
+                        Positioned(
+                          bottom: -130,
+                          left: -30,
+                          child: Container(
+                            height: 379,
+                            width: 379,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(190),
+                              color: Cl.colorFFFFFF.withOpacity(0.1),
+                            ),
                           ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '****',
-                            style: St.body16600.copyWith(color: Cl.colorFFFFFF),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '2197',
-                            style: St.body16600.copyWith(color: Cl.colorFFFFFF),
-                          ),
-                        ],
-                      )
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -154,7 +200,7 @@ class _CreditCardsViewState extends TTState<_CreditCardsModel, _CreditCardsView>
               itemWidth: 300.0,
               layout: SwiperLayout.STACK,
             ),
-          )
+          ),
         ],
       ),
     );

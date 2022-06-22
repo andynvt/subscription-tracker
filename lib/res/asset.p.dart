@@ -12,6 +12,7 @@ class Id {
   static const String ic_arrow_right = 'assets/images/ic_arrow_right.png';
   static const String ic_calendar = 'assets/images/ic_calendar.png';
   static const String ic_car = 'assets/images/ic_car.png';
+  static const String ic_card = 'assets/images/ic_card.png';
   static const String ic_chart = 'assets/images/ic_chart.png';
   static const String ic_circle = 'assets/images/ic_circle.png';
   static const String ic_credit_cards = 'assets/images/ic_credit_cards.png';
