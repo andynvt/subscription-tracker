@@ -22,68 +22,115 @@ class _MenuViewState extends TTState<_MenuModel, _MenuView> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(children: [
-          const SizedBox(height: 43),
-          Center(
-            child: Container(
-              color: Cl.color83839C,
-              height: 105,
-              width: 210,
-              padding: const EdgeInsets.only(top: 49),
-              child: Column(
-                children: [
-                  const Text(
-                    '\$82,97',
-                    style: St.body24700,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'of\$2,000 budget',
-                    style: St.body12500.copyWith(color: Cl.colorA2A2B5),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 40),
-          Container(
-            height: 60,
-            width: 326,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                16,
-              ),
-              border: Border.all(color: Cl.color4E4E61),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            Column(
               children: [
-                Text(
-                  'Your budgets are on track',
-                  style: St.body14600.copyWith(color: Cl.colorFFFFFF),
+                const SizedBox(height: 43),
+                Center(
+                  child: Column(
+                    children: [
+                      const Text(
+                        '\$82,97',
+                        style: St.body24700,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'of\$2,000 budget',
+                        style: St.body12500.copyWith(color: Cl.colorA2A2B5),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(width: 8),
-                Image.asset(Id.ic_like),
+                const SizedBox(height: 40),
+                Container(
+                  height: 60,
+                  width: 326,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      16,
+                    ),
+                    border: Border.all(color: Cl.color4E4E61),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Your budgets are on track',
+                        style: St.body14600.copyWith(color: Cl.colorFFFFFF),
+                      ),
+                      const SizedBox(width: 8),
+                      Image.asset(Id.ic_like),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (_, i) => const SizedBox(height: 8),
+                  itemCount: model.budgets.length + 1,
+                  itemBuilder: (_, i) {
+                    if (i == model.budgets.length) {
+                      return buildAddNewCategoryButton();
+                    }
+                    return buildBudgetsItem(
+                      budgetInfo: model.budgets[i],
+                    );
+                  },
+                ),
+                const SizedBox(height: 50)
               ],
             ),
-          ),
-          const SizedBox(height: 16),
-          ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            separatorBuilder: (_, i) => const SizedBox(height: 8),
-            itemCount: model.budgets.length + 1,
-            itemBuilder: (_, i) {
-              if (i == model.budgets.length) {
-                return buildAddNewCategoryButton();
-              }
-              return buildBudgetsItem(
-                budgetInfo: model.budgets[i],
-              );
-            },
-          ),
-          const SizedBox(height: 50)
-        ]),
+            Positioned(
+              height: 180 + MediaQuery.of(context).padding.top,
+              child: SfRadialGauge(
+                enableLoadingAnimation: true,
+                axes: <RadialAxis>[
+                  RadialAxis(
+                    offsetUnit: GaugeSizeUnit.factor,
+                    startAngle: 180,
+                    endAngle: 0,
+                    axisLineStyle: const AxisLineStyle(
+                      thickness: 12,
+                      cornerStyle: CornerStyle.bothCurve,
+                      color: Cl.color4E4E61,
+                    ),
+
+                    // centerX: 0.5,
+                    // centerY: 0.5,
+                    radiusFactor: 0.9,
+                    showLabels: false,
+                    showTicks: false,
+                    minimum: 0,
+                    maximum: 100,
+                    ranges: [
+                      GaugeRange(
+                        startValue: 0,
+                        endValue: 30,
+                        color: Cl.color00FAD9,
+                        rangeOffset: 1,
+                      ),
+                      GaugeRange(
+                        startValue: 30,
+                        endValue: 80,
+                        color: Cl.colorFF7966,
+                        rangeOffset: 1,
+                      ),
+                      GaugeRange(
+                        startValue: 80,
+                        endValue: 100,
+                        color: Cl.colorAD7BFF,
+                        rangeOffset: 1,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

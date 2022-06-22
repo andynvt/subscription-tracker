@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:subscription_tracker/model/model.dart';
 import 'package:subscription_tracker/res/res.dart';
 import 'package:subscription_tracker/widget/widget.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 part 'menu_view.dart';
 part 'menu_model.dart';

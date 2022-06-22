@@ -26,83 +26,120 @@ class _HomeContentViewState extends TTState<_HomeContentModel, _HomeContentView>
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24),
-                    ),
-                    color: Cl.color3535421,
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 32 + padding.top),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: IconButton(
-                              onPressed: model.onSettingPressed,
-                              icon: Image.asset(Id.ic_setting),
+                Stack(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 24),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(24),
+                          bottomRight: Radius.circular(24),
+                        ),
+                        color: Cl.color3535421,
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 32 + padding.top),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 12),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: IconButton(
+                                  onPressed: model.onSettingPressed,
+                                  icon: Image.asset(Id.ic_setting),
+                                ),
+                              ),
                             ),
+                          ),
+                          Column(
+                            children: [
+                              const SizedBox(height: 74),
+                              const TTLogoWidget(height: 19),
+                              const SizedBox(height: 24),
+                              Text('\$1,235', style: St.body40700.copyWith(color: Cl.colorFFFFFF)),
+                              const SizedBox(height: 16),
+                              Text(
+                                'This month bills',
+                                style: St.body12600.copyWith(color: Cl.color83839C),
+                              ),
+                              const SizedBox(height: 20),
+                              const SizedBox(
+                                width: 148,
+                                child: TTButton(
+                                  text: 'See your budget',
+                                  height: 32,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 29),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 23),
+                            child: Row(
+                              children: [
+                                buildListItem(
+                                  text1: 'Active subs',
+                                  text2: '12',
+                                  color: Cl.colorFFA699,
+                                ),
+                                const SizedBox(width: 8),
+                                buildListItem(
+                                  text1: 'Highest subs',
+                                  text2: '\$19.99',
+                                  color: Cl.colorAD7BFF,
+                                ),
+                                const SizedBox(width: 8),
+                                buildListItem(
+                                  text1: 'Lowest subs',
+                                  text2: '\$5.99',
+                                  color: Cl.color7DFFEE,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      left: 44,
+                      right: 45,
+                      top: 70 + padding.top,
+                      child: SleekCircularSlider(
+                        min: 0,
+                        max: 100,
+                        initialValue: 90,
+                        appearance: CircularSliderAppearance(
+                          size: 300,
+                          infoProperties: InfoProperties(
+                            modifier: (v) => '',
+                          ),
+                          customColors: CustomSliderColors(
+                            progressBarColor: Cl.colorFF7966,
+                            // progressBarColors: [
+                            //   Cl.colorFF7966,
+                            //   Cl.colorFF7F37.withOpacity(0.6),
+                            //   // Cl.colorFFFFFF.withOpacity(0),
+                            // ],
+                            shadowColor: Cl.colorFF7966.withOpacity(0.5),
+                            shadowStep: 25,
+                            shadowMaxOpacity: 0.05,
+                            trackColor: Cl.color4E4E61.withOpacity(0.2),
+                            trackColors: [
+                              Cl.colorCFCFFC.withOpacity(0.15),
+                              Cl.colorCFCFFC.withOpacity(0),
+                            ],
+                          ),
+                          customWidths: CustomSliderWidths(
+                            handlerSize: 0,
+                            trackWidth: 10,
+                            progressBarWidth: 10,
                           ),
                         ),
                       ),
-                      Container(
-                        height: 286,
-                        width: 286,
-                        color: Colors.grey[700],
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 74),
-                            const TTLogoWidget(height: 19),
-                            const SizedBox(height: 24),
-                            Text('\$1,235', style: St.body40700.copyWith(color: Cl.colorFFFFFF)),
-                            const SizedBox(height: 16),
-                            Text(
-                              'This month bills',
-                              style: St.body12600.copyWith(color: Cl.color83839C),
-                            ),
-                            const SizedBox(height: 29),
-                            const SizedBox(
-                              width: 148,
-                              child: TTButton(
-                                text: 'See your budget',
-                                height: 32,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 23),
-                        child: Row(
-                          children: [
-                            buildListItem(
-                              text1: 'Active subs',
-                              text2: '12',
-                              color: Cl.colorFFA699,
-                            ),
-                            const SizedBox(width: 8),
-                            buildListItem(
-                              text1: 'Highest subs',
-                              text2: '\$19.99',
-                              color: Cl.colorAD7BFF,
-                            ),
-                            const SizedBox(width: 8),
-                            buildListItem(
-                              text1: 'Lowest subs',
-                              text2: '\$5.99',
-                              color: Cl.color7DFFEE,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 21),
                 Container(
