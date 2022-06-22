@@ -11,8 +11,11 @@ class _CreditCardsViewState extends TTState<_CreditCardsModel, _CreditCardsView>
           style: St.body14600.copyWith(color: Cl.colorA2A2B5),
         ),
         actions: [
-          Image.asset(
-            Id.ic_setting,
+          IconButton(
+            onPressed: model.onSettingPressed,
+            icon: Image.asset(
+              Id.ic_setting,
+            ),
           ),
         ],
         elevation: 0,
@@ -164,7 +167,7 @@ class _CreditCardsViewState extends TTState<_CreditCardsModel, _CreditCardsView>
                             ),
                             const SizedBox(height: 16),
                             Image.asset(Id.ic_card),
-                            SizedBox(height: 47),
+                            const SizedBox(height: 47),
                           ],
                         ),
                         Positioned(
